@@ -19,12 +19,21 @@
     rust-mode
     go-mode
     haskell-mode
-    eglot))
+    eglot
+    company
+    flycheck))
+
+(mapc #'ensure-package-installed my-packages)
 
 (add-hook 'go-mode-hook 'eglot-ensure)
+(add-hook 'go-mode-hook 'company-mode)
+(add-hook 'go-mode-hook 'flycheck-mode)
 (add-hook 'rust-mode-hook 'eglot-ensure)
+(add-hook 'rust-mode-hook 'company-mode)
+(add-hook 'rust-mode-hook 'flycheck-mode)
 (add-hook 'js-mode-hook 'eglot-ensure)
+(add-hook 'js-mode-hook 'company-mode)
+(add-hook 'js-mode-hook 'flycheck-mode)
 (add-hook 'typescript-mode-hook 'eglot-ensure)
-
-;; M-x package-install RET company RET
-;; (add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'typescript-mode-hook 'company-mode)
+(add-hook 'typescript-mode-hook 'flycheck-mode)
